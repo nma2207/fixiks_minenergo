@@ -49,6 +49,7 @@ class Weather:
         self.squall = 0
         self.storm_rainfall = 0
         self.electric_storm = int(responce.fact.is_thunder) if responce.fact.is_thunder is not None else 0
+
     def get_data(self):
         data = np.array([self.lon, self.lat, self.temp, self.winddir, self.windspeed, self.precipitation, self.snowstorm, self.mist,
                 self.hail, self.glaze_ice, self.blast, self.squall, self.storm_rainfall, self.electric_storm])
