@@ -100,7 +100,7 @@ def date_contr(date):
 @app.route('/weather/')
 def pars_Weather():
     kl = cl.predict_all()
-    print(kl["RU-KDA"].fire_proba)
+#    print(kl["RU-KDA"].fire_proba)
     regions =[]
 
     for i in kl:
