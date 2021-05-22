@@ -1,10 +1,8 @@
-
-from model import Model
-import datetime
+from classifier import AccidentPredictor
+from yaweather.cities import Russia
 
 
 if __name__ == "__main__":
-    model = Model()
-    datas = model.get_subjects_by_date(datetime.date(2020, 7, 7))
-    for data in datas:
-        print(data)
+    pred = AccidentPredictor()
+    res = pred.predict(Russia.Moscow)
+    print(res)
