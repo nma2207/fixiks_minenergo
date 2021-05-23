@@ -21,35 +21,12 @@
 	<li>Github</li>
   
  </ul>
-<h4>Демо</h4>
-<p>Демо сервиса доступно по адресу: http://demo.test </p>
-<p>Реквизиты тестового пользователя: email: <b>testuser@test.ru</b>, пароль: <b>testuser</b></p>
-
-
 
 
 СРЕДА ЗАПУСКА
 ------------
-1) развертывание сервиса производится на debian-like linux (debian 9+);
-2) требуется установленный web-сервер с поддержкой PHP(версия 7.4+) интерпретации (apache, nginx);
-3) требуется установленный python3+  установленными зависимостями
-4) требуется установленный пакет name1 для работы с...;
+1) требуется установленный python3+  установленными зависимостями
 
-
-УСТАНОВКА
-------------
-### Установка пакета name
-
-Выполните 
-~~~
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install name1
-sudo apt-get install mariadb-client mariadb-server
-git clone https://github.com/Sinclear/default_readme
-cd default_readme
-...
-~~~
 
 
 ### Установка зависимостей проекта
@@ -60,9 +37,18 @@ python -m venv my_venv
 pip install requirements
 ~~~
 
+
+### Запуск проекта
+Для работы сервиса необходимо запустить сервер
+
+~~~
+python app.py
+~~~
+
+
 РАЗРАБОТЧИКИ
 
-<h4>Толкачев Ярослав Project Manager https://t.me/@alyanyr </h4>
-<h4>Баталов Павел Аналитик https://t.me/@pbatalov </h4>
-<h4>Набиев Марат back-end developer https://t.me/@nma2207 </h4>
-<h4>Константинов Евгений fullstack https://t.me/@jeka_tsar </h4>
+<h4>Толкачев Ярослав Project Manager https://t.me/alyanyr </h4>
+<h4>Баталов Павел Аналитик https://t.me/pbatalov </h4>
+<h4>Набиев Марат back-end developer https://t.me/nma2207 </h4>
+<h4>Константинов Евгений fullstack https://t.me/jeka_tsar </h4>
