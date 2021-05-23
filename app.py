@@ -44,19 +44,28 @@ def region_inf(id,date):
 
 @app.route('/weather/<id>/<date>')
 def par_Weather(id,date):
-    kl = cl.predict_all()
+    kl = cl.predict_by_id(id)
     print(kl["RU-KDA"].fire_proba)
     region = {}
     for i in kl:
         print(i," - ", kl[i])
         if i == id:
             region["Region"]= i
+
             region["fire_proba"] = "{:.4}".format(kl[i].fire_proba)
             region["ice_proba"] = "{:.4}".format(kl[i].ice_proba)
             region["norm_proba"] = "{:.4}".format(kl[i].norm_proba)
             region["tree_fall_proba"] = "{:.2}".format(kl[i].tree_fall_proba)
             region["temp"] = str(kl[i].weather.temp)
             region["speeding"] = str(kl[i].weather.windspeed)
+            event = ""
+            if kl[i].fire_proba >= 25:
+                event = "Предупреждение!"
+            if kl[i].ice_proba >= 25:
+                event = "Предупреждение!"
+            if kl[i].tree_fall_proba >= 25:
+                event = "Предупреждение!"
+            region['Event'] = event
     jSon = json.dumps(region)
     res = make_response(jSon)
     res.headers['Content-Type'] = 'application/json'

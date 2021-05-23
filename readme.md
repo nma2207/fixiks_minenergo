@@ -62,7 +62,7 @@ pip install requirements
 
 РАЗРАБОТЧИКИ
 
-<h4>Толкачев Ярослав Project Manager https://t.me/@alyanyr </h4>
-<h4>Баталов Павел Аналитик https://t.me/@pbatalov </h4>
-<h4>Набиев Марат back-end developer https://t.me/@nma2207 </h4>
-<h4>Константинов Евгений fullstack https://t.me/@jeka_tsar </h4>
+<h4>Толкачев Ярослав Project Manager https://t.me/alyanyr </h4>
+<h4>Баталов Павел Аналитик https://t.me/pbatalov </h4>
+<h4>Набиев Марат back-end developer https://t.me/nma2207 </h4>
+<h4>Константинов Евгений fullstack https://t.me/jeka_tsar </h4>

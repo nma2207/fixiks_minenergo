@@ -1,4 +1,6 @@
 import joblib
+import yaweather.cities
+
 import utils
 from yaweather.models.response import Response
 from yaweather.models.base import PhenomCondition
@@ -31,6 +33,8 @@ def check_condition_type(condition, types):
 
 class Weather:
     def __init__(self, responce: Response):
+        if responce is None:
+            return
         #координаты
         self.lon = responce.info.lon
         self.lat = responce.info.lat
@@ -92,18 +96,42 @@ class AccidentPredictor:
         self.weatherPredictor = YaWeather(api_key=self.api_key)
         self.classifier = Classifier()
 
+    def get_accident(self, temp, windspeed, proba):
+        w = Weather(None)
+        w.temp = temp
+        w.windspeed = windspeed
+        return AccidentPredictionData(w, proba[0], proba[1], proba[2], proba[3])
+
     def predict(self, coord):
         responce = self.weatherPredictor.forecast(coord)
-        weather = Weather(responce).get_data()
-        proba = self.classifier.predict_accident(weather)[0]
+        weather = Weather(responce)
+        proba = self.classifier.predict_accident(weather.get_data())[0]
         return AccidentPredictionData(weather, proba[0], proba[1], proba[2], proba[3])
 
-    def predict_all(self):
+    def predict_by_id(self, id):
+        coords = {id: utils.CITY_TO_COORDS[id]}
         result = {}
-        for city, coord in utils.CITY_TO_COORDS.items():
+        for city, coord in coords.items():
+        #for city, coord in coords.items():
             try:
                 res = self.predict(coord)
                 result[city] = res
             except:
                 pass
+        print(result.keys())
+        return result
+
+
+    def predict_all(self):
+        result = {}
+        # coords = {'RU-KDA': yaweather.cities.Russia.Krasnodar,
+        #          'RU-SVE': yaweather.cities.Russia.Yekaterinburg}
+        for city, coord in utils.CITY_TO_COORDS.items():
+        #for city, coord in coords.items():
+            try:
+                res = self.predict(coord)
+                result[city] = res
+            except:
+                pass
+        print(result.keys())
         return result
